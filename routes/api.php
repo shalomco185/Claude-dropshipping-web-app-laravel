@@ -3,6 +3,7 @@
 use App\Http\Controllers\AI\AIController;
 use App\Http\Controllers\Order\OrderController;
 use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\SiteAudit\SiteAuditController;
 use App\Http\Controllers\Store\StoreController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,4 +24,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/ai/generate-description', [AIController::class, 'productDescription']);
     Route::post('/ai/generate-ad-copy', [AIController::class, 'adCopy']);
     Route::post('/ai/generate-seo', [AIController::class, 'seo']);
+
+    // Site Audit status polling
+    Route::get('/site-audit/{siteAudit}/status', [SiteAuditController::class, 'status']);
 });

@@ -16,6 +16,7 @@ import {
     UserGroupIcon,
     ChevronDownIcon,
     ChevronRightIcon,
+    MagnifyingGlassCircleIcon,
 } from '@heroicons/react/24/outline';
 
 const navigation = [
@@ -43,6 +44,7 @@ const navigation = [
     },
     { name: 'Analytics', href: 'analytics.index', icon: ChartBarIcon },
     { name: 'AI Tools', href: 'ai.index', icon: SparklesIcon },
+    { name: 'Site Audit', href: 'site-audit.index', icon: MagnifyingGlassCircleIcon },
     {
         name: 'Settings',
         icon: Cog6ToothIcon,
