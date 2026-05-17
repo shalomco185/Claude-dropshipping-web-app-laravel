@@ -12,6 +12,7 @@ use App\Http\Controllers\Order\OrderFulfillmentController;
 use App\Http\Controllers\Product\CategoryController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Product\ProductImportController;
+use App\Http\Controllers\SiteAudit\SiteAuditController;
 use App\Http\Controllers\Store\StoreController;
 use App\Http\Controllers\Store\StoreSettingsController;
 use Illuminate\Support\Facades\Route;
@@ -69,6 +70,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/product-description', [AIController::class, 'productDescription'])->name('product-description');
         Route::post('/ad-copy', [AIController::class, 'adCopy'])->name('ad-copy');
         Route::post('/seo', [AIController::class, 'seo'])->name('seo');
+    });
+
+    // Site Audit
+    Route::prefix('site-audit')->name('site-audit.')->group(function () {
+        Route::get('/', [SiteAuditController::class, 'index'])->name('index');
+        Route::post('/', [SiteAuditController::class, 'store'])->name('store');
+        Route::get('/{siteAudit}', [SiteAuditController::class, 'show'])->name('show');
+        Route::delete('/{siteAudit}', [SiteAuditController::class, 'destroy'])->name('destroy');
     });
 
     // Settings
